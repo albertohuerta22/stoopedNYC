@@ -11,15 +11,12 @@ const Product = db.define('nft', {
   },
   Description: {
     type: Sequelize.TEXT,
-    defaultValue: 'Grace_Hopper'
   },
   Location: {
     type: Sequelize.TEXT,
-    defaultValue: 'Grace_Hopper'
   },
   Votes: {
     type: Sequelize.INTEGER,
-    defaultValue: 'Grace_Hopper'
   },
   imageUrl: {
     type: Sequelize.TEXT,
