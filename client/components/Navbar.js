@@ -2,31 +2,54 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
+import { useSelector, useDispatch } from "react-redux";
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div>
-    <h1>FS-App-Template</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
+const Navbar = ({ handleClick, isLoggedIn }) => {
+  const dispatch = useDispatch();
+  const {username, isAdmin} = useSelector((state) => state.auth)
+
+
+  
+  return (
+      <div className="nav">
+        <div className="title">
+          <h1>Stooped NYC</h1>
         </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/about">About</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
-    </nav>
-    <hr />
-  </div>
-);
+        <nav>
+          {!isLoggedIn ? (
+                    <div>
+                    {/* The navbar will show these links before you log in */}
+          
+                    <Link to="/">Home</Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/signup">Sign Up</Link>
+                  </div>
+          ) : isAdmin ? (
+            <div>
+              <h2>hello Admin {username}</h2>
+              <Link to="/products">Home</Link>
+              <Link to="/admin/users">Users</Link>
+              <Link to="/products">Products</Link>
+              <Link to="/test"></Link>
+              <a href="#" onClick={handleClick}>
+                Logout
+              </a>
+            </div>
+          ) : (
+            <div>
+              <h2>Hello, {username}</h2>
+              {/* The navbar will show these links after you log in */}
+              <Link to="/home">Home</Link>
+              <a href="#" onClick={handleClick}>
+                Logout
+              </a>
+            </div>
+          )}
+        </nav>
+        <hr />
+      </div>
+    )
+};
 
 /**
  * CONTAINER
