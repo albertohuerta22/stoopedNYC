@@ -1,7 +1,31 @@
 import axios from 'axios';
 
-const GET_PRODUCTS = 'GET_PRODUCTS';
+const SET_PRODUCTS = 'SET_PRODUCTS';
 
-const getProducts = (products) => ({ type: GET_PRODUCTS, products });
+const setProducts = (products) => ({ type: SET_PRODUCTS, products });
 
-const
+export const fetchProducts = () => {
+  return async (dispatch) => {
+    try {
+      // const token = localStorage.getItem('token');
+      const { data: products } = await axios.get('/api/products', {
+        // headers: { Authorization: token },
+      });
+      dispatch(setProducts(products));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+const productsReducer = (products = [], action) => {
+  switch (action.type) {
+    case SET_PRODUCTS:
+      return action.products;
+
+    default:
+      return products;
+  }
+};
+
+export default productsReducer;
