@@ -24,7 +24,7 @@ function AllProducts(){
                 src={item.imageUrl}
                 style={{ width: "200px", height: "200px" }}
               />
-              <h2>${item.price}</h2>
+              <br />
               {!isAdmin? null : (
                 <>
                   <button>edit</button>
