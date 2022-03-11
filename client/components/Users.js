@@ -18,7 +18,7 @@ function Users(){
           <Link key={user.id} to={`/User/${user.id}`}>
             <div>
               <h1>User: {user.username}</h1>
-              <h3>Is Admin: {String(user.isAdmin)}</h3>
+              <h3>Admin: {String(user.isAdmin)}</h3>
               {!isAdmin? null : (
                 <>
                   <button>edit</button>

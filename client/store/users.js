@@ -18,7 +18,7 @@ export const fetchUsers = () => {
       const { data } = await axios.get("/api/users");
       dispatch(gotAllUsers(data));
     } catch (error) {
-      console.log("fetchNFTs error: ", error);
+      console.log("fetchUsers error: ", error);
     }
   };
 };

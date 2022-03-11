@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { fetchNFTs } from "../store/nft";
 import { useDispatch, useSelector } from "react-redux";
-// import { connect } from "react-redux";
  import { Link } from "react-router-dom";
+import { fetchProducts } from "../store/productsReducer";
 // import { startSession } from "pg/lib/sasl";
 
 function AllProducts(){
 
-  const  NFTs  = useSelector(state => state.allProducts);
+  const  products  = useSelector(state => state.allProducts);
   const { isAdmin } = useSelector(state => state.auth);
-  const [AllFTs, setAllFTs] = useState([]);
+//   const [AllFTs, setAllFTs] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchNFTs());
+    dispatch(fetchProducts());
    }, []);
-    return NFTs ? (
+    return products ? (
       <div>
-        {NFTs.map((item) => (
-          <Link key={item.id} to={`/NFTs/${item.id}`}>
+        {products.map((item) => (
+          <Link key={item.id} to={`/products/${item.id}`}>
             <div>
               <h1>{item.name}</h1>
               <img

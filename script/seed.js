@@ -1,6 +1,7 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User,Product} } = require('../server/db')
+const products = require('./data')
 
 /**
  * seed - this function clears the database, updates tables to
@@ -11,21 +12,18 @@ async function seed() {
   console.log('db synced!')
 
   // Creating Users
-  const users = await Promise.all([
+  await Promise.all([
     User.create({ username: 'cody', password: '123' }),
     User.create({ username: 'murphy', password: '123' }),
+    Product.create
   ])
-
-  console.log(`seeded ${users.length} users`)
+  await Promise.all(
+  products.map((product) => {
+    return Product.create(product)
+  })
+  )
   console.log(`seeded successfully`)
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1]
-    }
-  }
 }
-
 /*
  We've separated the `seed` function from the `runSeed` function.
  This way we can isolate the error handling and exit trapping.

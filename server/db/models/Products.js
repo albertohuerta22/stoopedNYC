@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const Product = db.define('nft', {
+const Product = db.define('product', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -9,13 +9,15 @@ const Product = db.define('nft', {
       notEmpty: true,
     },
   },
-  Description: {
+  description: {
     type: Sequelize.TEXT,
+    allowNull: false,
   },
-  Location: {
+  location: {
     type: Sequelize.TEXT,
+    allowNull: false,
   },
-  Votes: {
+  votes: {
     type: Sequelize.INTEGER,
   },
   imageUrl: {
@@ -25,5 +27,9 @@ const Product = db.define('nft', {
       notEmpty: true,
     },
   },
+  isAvailable:{
+    type: Sequelize.BOOLEAN,
+    defaultValue: true
+  }
 });
 module.exports = Product;
