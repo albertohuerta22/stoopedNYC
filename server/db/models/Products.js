@@ -1,13 +1,13 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require('sequelize');
+const db = require('../db');
 
 const Product = db.define('nft', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
   Description: {
     type: Sequelize.TEXT,
@@ -22,9 +22,8 @@ const Product = db.define('nft', {
     type: Sequelize.TEXT,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
-  }
-
-})
-module.exports = Product
+      notEmpty: true,
+    },
+  },
+});
+module.exports = Product;
