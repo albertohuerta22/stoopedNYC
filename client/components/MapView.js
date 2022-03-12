@@ -20,6 +20,7 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 const mapView = () => {
   return (
     <div>
+      <h1>Find stooped items near you!</h1>
       <div style={{ width: '100vw', height: '100vh' }}>
         <WrappedMap
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBzfXuSV3tMH-P0wHjs_29y9fIgbmvgJ8E`}
