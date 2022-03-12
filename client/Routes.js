@@ -5,9 +5,10 @@ import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import About from './components/About';
 import { me } from './store';
-import User from './components/Users'
+import User from './components/Users';
 import AllProducts from './components/AllProducts';
 import SingleProduct from './components/SingleProduct';
+import mapView from './components/MapView';
 
 /**
  * COMPONENT
@@ -26,9 +27,10 @@ class Routes extends Component {
           <Switch>
             <Route path="/products" exact component={AllProducts} />
             <Route exact path="/products/:id" component={SingleProduct} />
-            <Route  exact path="/admin/users" component={User} />
+            <Route exact path="/admin/users" component={User} />
             <Route path="/home" component={Home} />
             <Route path="/about" component={About} />
+            <Route path="/mapview" component={mapView} />
             <Redirect to="/allproducts" />
           </Switch>
         ) : (
