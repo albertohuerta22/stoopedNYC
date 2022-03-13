@@ -5,6 +5,8 @@ const Vote = () => {
   const incrementquantity = () => setQuantity(quantity + 1);
   const decrementquantity = () => setQuantity(quantity - 1);
   return (
+    // if loggedIn
+    // already voted
     <div>
       <button type="button" onClick={incrementquantity}>
         👍

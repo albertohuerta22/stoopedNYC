@@ -17,6 +17,14 @@ const Product = db.define('product', {
     type: Sequelize.TEXT,
     allowNull: false,
   },
+  lat: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  lng: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
   votes: {
     type: Sequelize.INTEGER,
   },
@@ -24,9 +32,9 @@ const Product = db.define('product', {
     type: Sequelize.TEXT,
     defaultValue: "https://cdn.pixabay.com/photo/2016/03/22/04/23/map-1272165_960_720.png",
   },
-  isAvailable:{
+  isAvailable: {
     type: Sequelize.BOOLEAN,
-    defaultValue: true
-  }
+    defaultValue: true,
+  },
 });
 module.exports = Product;
