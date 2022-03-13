@@ -17,6 +17,14 @@ const Product = db.define('product', {
     type: Sequelize.TEXT,
     allowNull: false,
   },
+  lat: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  lng: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
   votes: {
     type: Sequelize.INTEGER,
   },
@@ -27,9 +35,9 @@ const Product = db.define('product', {
       notEmpty: true,
     },
   },
-  isAvailable:{
+  isAvailable: {
     type: Sequelize.BOOLEAN,
-    defaultValue: true
-  }
+    defaultValue: true,
+  },
 });
 module.exports = Product;
