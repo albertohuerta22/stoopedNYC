@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchProducts } from '../store/productsReducer';
@@ -7,8 +7,6 @@ import Vote from './Vote';
 
 function AllProducts() {
   const products = useSelector((state) => state.allProducts);
-  const { isAdmin } = useSelector((state) => state.auth);
-  //   const [AllFTs, setAllFTs] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,8 +34,8 @@ function AllProducts() {
       </Link>
 
       {products.map((item) => (
-        <div>
-          <Link key={item.id} to={`/products/${item.id}`}>
+        <div key={item.id} >
+          <Link to={`/products/${item.id}`}>
             <h1>{item.name}</h1>
             <img
               src={item.imageUrl}
@@ -46,12 +44,6 @@ function AllProducts() {
             <br />
           </Link>
           <Vote />
-          {!isAdmin ? null : (
-            <>
-              <button>edit</button>
-              <button>delete</button>
-            </>
-          )}
         </div>
       ))}
     </div>

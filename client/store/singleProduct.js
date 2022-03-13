@@ -12,7 +12,6 @@ export const getSingleProduct = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/products/${id}`);
-      // console.log('data', data);
       dispatch(gotSingleProduct(data));
     } catch (error) {
       console.log("fetchSingleProduct error: ", error);
