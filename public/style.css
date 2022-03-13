@@ -28,3 +28,33 @@ body {
 .nav {
   background-color: azure;
 }
+
+#formFormat{
+  width:30%;
+  margin-top: 50px;
+  padding-top: 50px;
+  margin:auto;
+}
+.row{
+  width:100%;
+  display:block;
+  
+
+}
+.column{
+    width:100%;
+    display:inline-block;
+    
+}
+.labels{
+  
+  width:38%;
+  float:left;
+  text-align: right;
+}
+.inputs{
+  
+
+  width:50%;
+  float:right;
+}
