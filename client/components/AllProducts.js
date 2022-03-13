@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchProducts } from '../store/productsReducer';
 // import { startSession } from "pg/lib/sasl";
+import Vote from './Vote';
 
 function AllProducts() {
   const products = useSelector((state) => state.allProducts);
@@ -36,6 +37,7 @@ function AllProducts() {
               src={item.imageUrl}
               style={{ width: '200px', height: '200px' }}
             />
+            <Vote />
             <br />
             {!isAdmin ? null : (
               <>

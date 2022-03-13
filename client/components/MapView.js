@@ -10,29 +10,12 @@ import {
 function Map() {
   return (
     <div>
-      <h1>
-        Stooped!{' '}
-        <span role="img" aria-label="stoop">
-          📦
-        </span>
-      </h1>
       <GoogleMap
         defaultZoom={12}
         defaultCenter={{ lat: 40.712776, lng: -74.005974 }}
-        onClick={(event) => {
-          setMarkers((current) => [
-            ...current,
-            {
-              lat: event.latLng.lat(),
-              lng: event.latLng.lng(),
-              time: new Date(),
-            },
-          ]);
-        }}
-      />
-      {MarkerClusterer.map((marker) => (
-        <Marker />
-      ))}
+      >
+        <Marker position={{ lat: 40.712776, lng: -74.005974 }} />
+      </GoogleMap>
     </div>
   );
 }
