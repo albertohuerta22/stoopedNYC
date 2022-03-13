@@ -16,8 +16,11 @@ function Map() {
         defaultZoom={12}
         defaultCenter={{ lat: 40.712776, lng: -74.005974 }}
       >
-        <Marker position={{ lat: 40.712776, lng: -74.005974 }} />
-        {products.map((product) => {})}
+        {products.map((product) => (
+          <div key={product.id}>
+            <Marker position={{ lat: product.lat, lng: product.lng }}></Marker>
+          </div>
+        ))}
       </GoogleMap>
     </div>
   );
