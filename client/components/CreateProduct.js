@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { me } from '../store/auth';
+import { createProduct } from '../store/productsReducer';
 
 
-function EditProduct () {
-    const product = useSelector((state) => state.singleProduct);
+function CreateProduct () {
+   //const product = useSelector((state) => state.singleProduct);
     const { isAdmin } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
 
     useEffect(() =>{
-        dispatch(me())
+        dispatch(createProduct())
     },[]);
         return isAdmin ? (
         <div id="formFormat" align="center">
@@ -34,11 +35,11 @@ function EditProduct () {
                         </div>
                     </div>
                 </form>
-                <button type="submit" style={{backgroundColor: '#30D5C8'}}>Save Changes</button>
+                <button type="submit" style={{backgroundColor: '#30D5C8'}}>Create Product</button>
             </main>
         </div>
         ) : ( <>{ null }</> )
     }
 
 
-export default EditProduct;
+export default CreateProduct;

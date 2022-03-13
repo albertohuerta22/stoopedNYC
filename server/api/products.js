@@ -47,3 +47,11 @@ router.delete('/:id', async (req, res, next) => {
     next(err);
   }
 });
+router.post('/', async (req, res, next) => {
+  try {
+    const product = await  Product.create(req.body);
+    res.json(product);
+  } catch (err) {
+    next(err);
+  }
+});
