@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchProducts } from '../store/productsReducer';
+import { fetchProducts, deleteProduct } from '../store/productsReducer';
 // import { startSession } from "pg/lib/sasl";
 
 function AllProducts() {
   const products = useSelector((state) => state.allProducts);
   const { isAdmin } = useSelector((state) => state.auth);
-  //   const [AllFTs, setAllFTs] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
+  const handleDelete = (e, itemId) =>{
+    e.preventDefault();
+    dispatch(deleteProduct(itemId))
+
+  }
   return products ? (
     <div>
       <form action="/" method="get">
@@ -40,7 +44,7 @@ function AllProducts() {
             {!isAdmin ? null : (
               <>
                 <button>edit</button>
-                <button>delete</button>
+                <button onClick={(e) => handleDelete(e,item.id)}>delete</button>
               </>
             )}
           </div>

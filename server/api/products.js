@@ -36,3 +36,14 @@ router.get('/:id', async (req, res, next) => {
     next(error);
   }
 });
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const removeProduct = await Product.findOne({
+      where: { id: req.params.id },
+    });
+    await removeProduct.destroy();
+    res.json(removeProduct);
+  } catch (err) {
+    next(err);
+  }
+});

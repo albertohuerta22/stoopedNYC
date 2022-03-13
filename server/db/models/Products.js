@@ -22,10 +22,7 @@ const Product = db.define('product', {
   },
   imageUrl: {
     type: Sequelize.TEXT,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-    },
+    defaultValue: "https://drive.google.com/file/d/1YcAG7zeUAp-_heavbcMJjotND4yqnEN9/view?usp=sharing",
   },
   isAvailable:{
     type: Sequelize.BOOLEAN,

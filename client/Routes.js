@@ -9,6 +9,7 @@ import User from './components/Users';
 import AllProducts from './components/AllProducts';
 import SingleProduct from './components/SingleProduct';
 import mapView from './components/MapView';
+import EditProduct from './components/EditProduct';
 
 /**
  * COMPONENT
@@ -25,6 +26,7 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
+            <Route path="/products/:id/edit" exact component={EditProduct} />
             <Route path="/products" exact component={AllProducts} />
             <Route exact path="/products/:id" component={SingleProduct} />
             <Route exact path="/admin/users" component={User} />

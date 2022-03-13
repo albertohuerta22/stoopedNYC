@@ -2,18 +2,22 @@ import React, { useState, useEffect } from "react";
 //import { connect } from "react-redux";
 import { getSingleProduct, } from "../store/singleProduct";
 import { useDispatch, useSelector } from "react-redux";
-
+import {deleteProduct} from "../store/productsReducer"
 function SingleProduct(props){
-  const  Product  = useSelector(state => state.singleProduct);
+  const  product  = useSelector(state => state.singleProduct);
   
   const {isAdmin } = useSelector(state => state.auth)
-  //const [AllFTs, setAllFTs] = useState([]);
   const dispatch = useDispatch();
-
+console.log('product', product)
   useEffect(() => {
     dispatch(getSingleProduct(props.match.params.id));
   }, []);
-    return Product ? (
+  const handleDelete = (e, itemId) =>{
+    e.preventDefault();
+    dispatch(deleteProduct(itemId))
+
+  }
+    return product ? (
       <div
         style={{
           textAlign: "center",
@@ -24,15 +28,15 @@ function SingleProduct(props){
           minHeight: "100vh",
         }}
       >
-        <img src={Product.imageUrl} style={{ maxWidth: "400px" }} />
-        <h1>{Product.name}</h1>
-        <h3>{Product.description}</h3>
-        <p>{Product.location}</p>
-        <p>Available: {String(Product.isAvailable)}</p>
+        <img src={product.imageUrl} style={{ maxWidth: "400px" }} />
+        <h1>{product.name}</h1>
+        <h3>{product.description}</h3>
+        <p>{product.location}</p>
+        <p>Available: {String(product.isAvailable)}</p>
         {!isAdmin? null : (
                 <>
                   <button>edit</button>
-                  <button>delete</button>
+                   <button onClick={(e) => handleDelete(e, product.id)}>delete</button>
                 </>
               )}
       </div>
