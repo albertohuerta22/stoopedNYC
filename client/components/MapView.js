@@ -1,4 +1,5 @@
 import React from 'react';
+const products = require('../../script/data');
 
 import {
   GoogleMap,
@@ -15,11 +16,17 @@ function Map() {
         defaultZoom={12}
         defaultCenter={{ lat: 40.712776, lng: -74.005974 }}
       >
-        <Marker position={{ lat: 40.712776, lng: -74.005974 }} />
+        {products.map((product) => (
+          <div key={product.id}>
+            <Marker position={{ lat: product.lat, lng: product.lng }}></Marker>
+          </div>
+        ))}
       </GoogleMap>
     </div>
   );
 }
+
+// 5 votes should trigger flame icon instead of default marker
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 // const API_KEY = process.env.REACT_APP_GOOGLE_KEY;
