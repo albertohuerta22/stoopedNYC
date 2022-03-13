@@ -21,7 +21,7 @@ export const fetchProducts = () => {
     }
   };
 };
-export const createProduct = (product, history) => {
+export const createProduct = (product) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post('/api/products', product);
@@ -32,12 +32,11 @@ export const createProduct = (product, history) => {
     }
   };
 }
-export const deleteProduct = (id) => {
-  console.log('test');
+export const deleteProduct = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete(`/api/products/${id}`, id);
-      dispatch(productDelete(data));
+      await axios.delete(`/api/products/${product.id}`, product);
+      dispatch(productDelete(product));
     } catch (err){
       console.log(err)
     }

@@ -9,9 +9,9 @@ function CreateProduct () {
     const { isAdmin } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
 
-    useEffect(() =>{
-        dispatch(createProduct())
-    },[]);
+    // useEffect(() =>{
+    //     dispatch(createProduct())
+    // },[]);
         return isAdmin ? (
         <div id="formFormat" align="center">
             <main>

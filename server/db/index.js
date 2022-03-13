@@ -4,6 +4,7 @@ const db = require('./db');
 
 const User = require('./models/User');
 const Product = require('./models/Products');
+const Vote = require('./models/Vote');
 
 //associations could go here!
 // User.hasMany(Product);
@@ -14,5 +15,6 @@ module.exports = {
   models: {
     User,
     Product,
+    Vote,
   },
 };

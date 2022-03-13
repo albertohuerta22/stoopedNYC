@@ -3,18 +3,20 @@ import React, { useState, useEffect } from "react";
 import { getSingleProduct, } from "../store/singleProduct";
 import { useDispatch, useSelector } from "react-redux";
 import {deleteProduct} from "../store/productsReducer"
+import {useHistory} from "react-router-dom"
 function SingleProduct(props){
   const  product  = useSelector(state => state.singleProduct);
   
   const {isAdmin } = useSelector(state => state.auth)
   const dispatch = useDispatch();
-console.log('product', product)
+  let history = useHistory();
   useEffect(() => {
     dispatch(getSingleProduct(props.match.params.id));
   }, []);
-  const handleDelete = (e, itemId) =>{
+  const handleDelete = (e, item) =>{
     e.preventDefault();
-    dispatch(deleteProduct(itemId))
+    dispatch(deleteProduct(item))
+    history.push("/products")
 
   }
     return product ? (
@@ -36,7 +38,7 @@ console.log('product', product)
         {!isAdmin? null : (
                 <>
                   <button>edit</button>
-                   <button onClick={(e) => handleDelete(e, product.id)}>delete</button>
+                   <button onClick={(e) => handleDelete(e, product)}>delete</button>
                 </>
               )}
       </div>

@@ -1,22 +1,17 @@
 import React, {  useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchProducts, deleteProduct } from '../store/productsReducer';
+import { fetchProducts } from '../store/productsReducer';
 // import { startSession } from "pg/lib/sasl";
+import Vote from './Vote';
 
 function AllProducts() {
   const products = useSelector((state) => state.allProducts);
-  const { isAdmin } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
-  const handleDelete = (e, itemId) =>{
-    e.preventDefault();
-    dispatch(deleteProduct(itemId))
-
-  }
   return products ? (
     <div>
       <form action="/" method="get">
@@ -32,23 +27,24 @@ function AllProducts() {
         <button type="submit">Search</button>
       </form>
 
+      <br />
+      <br />
+      <Link to={'/mapview'}>
+        <h1>View Map</h1>
+      </Link>
+
       {products.map((item) => (
-        <Link key={item.id} to={`/products/${item.id}`}>
-          <div>
+        <div key={item.id} >
+          <Link to={`/products/${item.id}`}>
             <h1>{item.name}</h1>
             <img
               src={item.imageUrl}
               style={{ width: '200px', height: '200px' }}
             />
             <br />
-            {!isAdmin ? null : (
-              <>
-                <button>edit</button>
-                <button onClick={(e) => handleDelete(e,item.id)}>delete</button>
-              </>
-            )}
-          </div>
-        </Link>
+          </Link>
+          <Vote />
+        </div>
       ))}
     </div>
   ) : (
