@@ -10,6 +10,9 @@ const Vote = require('./models/Vote');
 // User.hasMany(Product);
 // Product.belongsTo(User);
 
+// Product.hasMany(Vote);
+// Vote.belongsTo(Product);
+
 module.exports = {
   db,
   models: {
