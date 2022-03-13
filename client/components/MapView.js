@@ -6,6 +6,7 @@ import {
   withGoogleMap,
   Marker,
 } from 'react-google-maps';
+import { Link } from 'react-router-dom';
 
 function Map() {
   return (
@@ -44,6 +45,9 @@ const mapView = () => {
           mapElement={<div style={{ height: '100%' }} />}
         />
       </div>
+      <Link to={'/products'}>
+        <h1>Back To Search!</h1>
+      </Link>
     </div>
   );
 };

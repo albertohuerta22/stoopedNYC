@@ -29,24 +29,30 @@ function AllProducts() {
         <button type="submit">Search</button>
       </form>
 
+      <br />
+      <br />
+      <Link to={'/mapview'}>
+        <h1>View Map</h1>
+      </Link>
+
       {products.map((item) => (
-        <Link key={item.id} to={`/products/${item.id}`}>
-          <div>
+        <div>
+          <Link key={item.id} to={`/products/${item.id}`}>
             <h1>{item.name}</h1>
             <img
               src={item.imageUrl}
               style={{ width: '200px', height: '200px' }}
             />
-            <Vote />
             <br />
-            {!isAdmin ? null : (
-              <>
-                <button>edit</button>
-                <button>delete</button>
-              </>
-            )}
-          </div>
-        </Link>
+          </Link>
+          <Vote />
+          {!isAdmin ? null : (
+            <>
+              <button>edit</button>
+              <button>delete</button>
+            </>
+          )}
+        </div>
       ))}
     </div>
   ) : (
