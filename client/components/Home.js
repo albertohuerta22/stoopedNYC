@@ -1,34 +1,28 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
+import Review from './Review';
 
 /**
  * COMPONENT
  */
-export const Home = (props) => {
-  const { username } = props;
+const Home = () => {
+  const username = useSelector((state) => state.auth.username);
 
-  if (username) {
-    return (
-      <div>
-        <h3>Welcome, {username}</h3>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <h3>Welcome, Guest</h3>
-      </div>
-    );
-  }
+  return username ? (
+    <div>
+      <h1>Welcome, {username}!</h1>
+      <Review />
+    </div>
+  ) : (
+    <div>
+      <h1>Welcome, Guest!</h1>
+      <Review />
+    </div>
+  );
 };
 
 /**
  * CONTAINER
  */
-const mapState = (state) => {
-  return {
-    username: state.auth.username,
-  };
-};
 
-export default connect(mapState)(Home);
+export default Home;

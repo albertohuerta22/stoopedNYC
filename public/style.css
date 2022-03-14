@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -29,48 +29,60 @@ body {
   background-color: azure;
 }
 
-#formFormat{
-  width:30%;
+#formFormat {
+  width: 30%;
   margin-top: 50px;
   padding-top: 50px;
-  margin:auto;
+  margin: auto;
 }
-.row{
-  width:100%;
-  display:block;
-  
-
+.row {
+  width: 100%;
+  display: block;
 }
-.column{
-    width:100%;
-    display:inline-block;
-    
+.column {
+  width: 100%;
+  display: inline-block;
 }
-.labels{
-  
-  width:38%;
-  float:left;
+.labels {
+  width: 38%;
+  float: left;
   text-align: right;
 }
-.inputs{
-  
-
-  width:50%;
-  float:right;
+.inputs {
+  width: 50%;
+  float: right;
 }
-.products{
+.products {
   display: inline;
 }
 
-h2{
+h2 {
   display: inline-block;
   width: 210px;
-  }
-.allP{
-  display:flex;
+}
+.allP {
+  display: flex;
   justify-content: space-evenly;
 }
-.vote{
+.vote {
   display: inline;
   align-content: center;
+}
+
+.review1 {
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+}
+.review2 {
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+}
+.review3 {
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
 }
