@@ -19,11 +19,11 @@ const Product = db.define('product', {
   },
   lat: {
     type: Sequelize.DECIMAL,
-    allowNull: false,
+    defaultValue: 40.78384,
   },
   lng: {
     type: Sequelize.DECIMAL,
-    allowNull: false,
+    defaultValue: -73.965553,
   },
   votes: {
     type: Sequelize.INTEGER,

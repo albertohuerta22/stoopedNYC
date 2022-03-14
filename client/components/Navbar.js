@@ -32,7 +32,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
             <Link to="/admin/users">Users</Link>
             <Link to="/products">Search</Link>
             <Link to="/createproduct">New Item</Link>
-            <Link to="/test"></Link>
+
             <a href="#" onClick={handleClick}>
               Logout
             </a>
@@ -44,6 +44,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
             <Link to="/home">Home</Link>
             <Link to="/about">About</Link>
             <Link to="/products">Search</Link>
+            <Link to="/createproduct">New Item</Link>
             <a href="#" onClick={handleClick}>
               Logout
             </a>
