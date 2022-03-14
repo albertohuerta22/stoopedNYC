@@ -27,6 +27,7 @@ body {
 }
 .nav {
   background-color: azure;
+  border-radius: 10px;
 }
 
 #formFormat {
@@ -55,9 +56,14 @@ body {
 .products {
   display: inline;
 }
-
-h2 {
+h1{
+  justify-content: center;
+  text-align: center;
+}
+h2{
   display: inline-block;
+  text-align: center;
+  justify-content: center;
   width: 210px;
 }
 .allP {
@@ -67,6 +73,18 @@ h2 {
 .vote {
   display: inline;
   align-content: center;
+}
+.image{
+  border-radius: 25px;
+}
+.visually-hidden{
+  text-align: center;
+  justify-content: center;
+  
+}
+.navoptions{
+  text-align: center;
+  justify-content: space-evenly;
 }
 
 .review1 {

@@ -17,12 +17,13 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
         {!isLoggedIn ? (
           <div>
             {/* The navbar will show these links before you log in */}
-
-            <Link to="/home">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/products">Search</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
+            <div className="navoptions">
+              <Link to="/home">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/products">Search</Link>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </div>
           </div>
         ) : isAdmin ? (
           <div>
@@ -40,18 +41,18 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
         ) : (
           <div>
             <h2>Hello, {username}</h2>
-            {/* The navbar will show these links after you log in */}
-            <Link to="/home">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/products">Search</Link>
-            <Link to="/createproduct">New Item</Link>
-            <a href="#" onClick={handleClick}>
-              Logout
-            </a>
+            <br />
+            <div className="navoptions">
+              <Link to="/home">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/products">Search</Link>
+              <a href="#" onClick={handleClick}>
+                Logout
+              </a>
+            </div>
           </div>
         )}
       </nav>
-      <hr />
     </div>
   );
 };

@@ -16,7 +16,7 @@ function AllProducts() {
     <div>
       <form action="/" method="get">
         <label htmlFor="header-search">
-          <span className="visually-hidden">Search Stooped items!</span>
+          <div className="visually-hidden">Search Stooped items!</div>
         </label>
         <input
           type="text"
@@ -37,9 +37,9 @@ function AllProducts() {
           <Link to={`/products/${item.id}`}>
             <h2>{item.name}</h2>
             <br />
-            <img
+            <img className='image'
               src={item.imageUrl}
-              style={{ width: '200px', height: '200px' }}
+              style={{ width: '200px', height: '200px',}}
               />
             <br />
           </Link>
