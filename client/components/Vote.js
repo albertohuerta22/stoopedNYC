@@ -16,7 +16,7 @@ const Vote = () => {
   return (
     // if loggedIn
     // already voted
-    <div>
+    <div className="vote">
       <button type="button" onClick={incrementquantity}>
         👍
       </button>

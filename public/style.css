@@ -58,3 +58,19 @@ body {
   width:50%;
   float:right;
 }
+.products{
+  display: inline;
+}
+
+h2{
+  display: inline-block;
+  width: 210px;
+  }
+.allP{
+  display:flex;
+  justify-content: space-evenly;
+}
+.vote{
+  display: inline;
+  align-content: center;
+}
