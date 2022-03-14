@@ -27,6 +27,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
           </div>
         ) : isAdmin ? (
           <div>
+
             <h2>Hello, Admin {username}</h2>
             <br />
             <div className="navoptions">
@@ -35,6 +36,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
               <Link to="/admin/users">Users</Link>
               <Link to="/products">Search</Link>
               <Link to="/createproduct">New Item</Link>
+
 
               <a href="#" onClick={handleClick}>
                 Logout
