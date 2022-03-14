@@ -18,15 +18,16 @@ const Product = db.define('product', {
     allowNull: false,
   },
   lat: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DECIMAL,
     allowNull: false,
   },
   lng: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DECIMAL,
     allowNull: false,
   },
   votes: {
     type: Sequelize.INTEGER,
+    defaultValue: 0,
   },
   imageUrl: {
     type: Sequelize.TEXT,

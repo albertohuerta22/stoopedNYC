@@ -26,7 +26,6 @@ export const createProduct = (product) => {
     try {
       const { data } = await axios.post('/api/products', product);
       dispatch(productCreate(data));
-      history.push('/products');
     } catch (err){
       console.log(err)
     }
