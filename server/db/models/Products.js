@@ -27,6 +27,7 @@ const Product = db.define('product', {
   },
   votes: {
     type: Sequelize.INTEGER,
+    defaultValue: 0,
   },
   imageUrl: {
     type: Sequelize.TEXT,
