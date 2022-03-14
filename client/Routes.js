@@ -10,7 +10,7 @@ import AllProducts from './components/AllProducts';
 import SingleProduct from './components/SingleProduct';
 import mapView from './components/MapView';
 import EditProduct from './components/EditProduct';
-import CreateProduct from './components/CreateProduct'
+import CreateProduct from './components/CreateProduct';
 
 /**
  * COMPONENT
@@ -39,9 +39,11 @@ class Routes extends Component {
           </Switch>
         ) : (
           <Switch>
+            <Route path="/home" component={Home} />
             <Route path="/products" exact component={AllProducts} />
             <Route exact path="/products/:id" component={SingleProduct} />
             <Route path="/about" component={About} />
+            <Route path="/mapview" component={mapView} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
           </Switch>
