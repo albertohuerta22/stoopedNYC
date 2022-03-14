@@ -17,7 +17,7 @@ const About = () => {
         </p>
       </div>
 
-      <div>
+      <div className="journeyStatement">
         <h1>How our journey:</h1>
         <p>
           Plop down in the middle where everybody walks. Steal raw zucchini off

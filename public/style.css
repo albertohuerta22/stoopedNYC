@@ -1,9 +1,11 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #d4f1f4;
 }
 
 a {
   text-decoration: none;
+  color: #05445e;
 }
 
 label {
@@ -13,20 +15,20 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+  color: #05445e;
 }
 
 form div {
   margin: 1em;
   display: inline-block;
 }
-body {
-  background-color: gray;
-}
+
 .title {
   text-align: center;
+  color: #05445e;
 }
 .nav {
-  background-color: azure;
+  background-color: #75e6da;
   border-radius: 10px;
 }
 
@@ -48,6 +50,7 @@ body {
   width: 38%;
   float: left;
   text-align: right;
+  color: #05445e;
 }
 .inputs {
   width: 50%;
@@ -56,15 +59,17 @@ body {
 .products {
   display: inline;
 }
-h1{
+h1 {
   justify-content: center;
   text-align: center;
+  color: #05445e;
 }
-h2{
+h2 {
   display: inline-block;
   text-align: center;
   justify-content: center;
   width: 210px;
+  color: 189ab4;
 }
 .allP {
   display: flex;
@@ -74,15 +79,14 @@ h2{
   display: inline;
   align-content: center;
 }
-.image{
+.image {
   border-radius: 25px;
 }
-.visually-hidden{
+.visually-hidden {
   text-align: center;
   justify-content: center;
-  
 }
-.navoptions{
+.navoptions {
   text-align: center;
   justify-content: space-evenly;
 }
