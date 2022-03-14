@@ -26,26 +26,28 @@ function AllProducts() {
         />
         <button type="submit">Search</button>
       </form>
-
       <br />
       <br />
       <Link to={'/mapview'}>
         <h1>View Map</h1>
       </Link>
-
+      <div className="allP">
       {products.map((item) => (
-        <div key={item.id} >
+        <div className="products" key={item.id} >
           <Link to={`/products/${item.id}`}>
-            <h1>{item.name}</h1>
+            <h2>{item.name}</h2>
+            <br />
             <img
               src={item.imageUrl}
               style={{ width: '200px', height: '200px' }}
-            />
+              />
             <br />
           </Link>
           <Vote />
+          <br />
         </div>
       ))}
+      </div>
     </div>
   ) : (
     <div>{'loading'}</div>
