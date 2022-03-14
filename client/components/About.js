@@ -3,6 +3,8 @@ import React from 'react';
 const About = () => {
   return (
     <div>
+      <br />
+      <br />
       <div className="missionStatement">
         <h1>Our Mission:</h1>
         <p>
