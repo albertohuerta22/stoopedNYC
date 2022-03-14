@@ -1,5 +1,4 @@
 import React from 'react';
-const products = require('../../script/data');
 
 import {
   GoogleMap,
@@ -9,6 +8,8 @@ import {
 } from 'react-google-maps';
 import { Link } from 'react-router-dom';
 
+const products = require('../../script/data');
+
 function Map() {
   return (
     <div>
@@ -16,11 +17,25 @@ function Map() {
         defaultZoom={12}
         defaultCenter={{ lat: 40.712776, lng: -74.005974 }}
       >
-        {products.map((product) => (
-          <div key={product.id}>
-            <Marker position={{ lat: product.lat, lng: product.lng }}></Marker>
-          </div>
-        ))}
+        {products.map((product) =>
+          product.votes >= 5 ? (
+            <div key={product.id}>
+              <Marker
+                position={{ lat: product.lat, lng: product.lng }}
+                icon={{
+                  url: 'https://toppng.com/uploads/preview/free-fire-png-logo-11569068081ezy973wyyo.png',
+                  scaledSize: { height: 50, width: 50 },
+                }}
+              ></Marker>
+            </div>
+          ) : (
+            <div key={product.id}>
+              <Marker
+                position={{ lat: product.lat, lng: product.lng }}
+              ></Marker>
+            </div>
+          )
+        )}
       </GoogleMap>
     </div>
   );
