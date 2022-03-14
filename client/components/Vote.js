@@ -11,17 +11,35 @@ const Vote = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    // dispatch(fetchProducts());
   }, []);
+
+  const upVote = () => {
+    for (let i = 0; i < products.length; i++) {
+      let user = products[i];
+      user.votes++;
+    }
+  };
+
+  const downVote = () => {
+    for (let i = 0; i < products.length; i++) {
+      let user = products[i];
+      user.votes--;
+    }
+  };
+
   return (
     // if loggedIn
     // already voted
-    <div className="vote">
-      <button type="button" onClick={incrementquantity}>
+    <div>
+      <button name="upVote" type="button" onClick={incrementquantity}>
         👍
       </button>
       {quantity}
-      <button type="button" onClick={decrementquantity}>
+      {/* {products.map((product, idx) => {
+        return product.id === idx ? 0 : null;
+      })} */}
+      <button name="downVote" type="button" onClick={decrementquantity}>
         👎
       </button>
     </div>
@@ -29,3 +47,6 @@ const Vote = () => {
 };
 
 export default Vote;
+
+// home page needs reviews, import photos/
+// color pallette

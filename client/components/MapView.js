@@ -24,7 +24,7 @@ function Map() {
                 position={{ lat: product.lat, lng: product.lng }}
                 icon={{
                   url: 'https://toppng.com/uploads/preview/free-fire-png-logo-11569068081ezy973wyyo.png',
-                  scaledSize: { height: 50, width: 50 },
+                  scaledSize: { height: 30, width: 30 },
                 }}
               ></Marker>
             </div>

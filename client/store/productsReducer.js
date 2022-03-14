@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const SET_PRODUCTS = 'SET_PRODUCTS';
 const CREATE_PRODUCT = 'CREATE_PRODUCT';
-const DELETE_PRODUCT = 'DELETE_PRODUCT'
+const DELETE_PRODUCT = 'DELETE_PRODUCT';
 
 const setProducts = (products) => ({ type: SET_PRODUCTS, products });
 export const productCreate = (product) => ({ type: CREATE_PRODUCT, product });
@@ -26,30 +26,42 @@ export const createProduct = (product) => {
     try {
       const { data } = await axios.post('/api/products', product);
       dispatch(productCreate(data));
-    } catch (err){
-      console.log(err)
+    } catch (err) {
+      console.log(err);
     }
   };
-}
+};
+export const updateProduct = (product) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put('/api/products', product);
+      dispatch(productCreate(data));
+      history.push('/products');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
 export const deleteProduct = (product) => {
   return async (dispatch) => {
     try {
       await axios.delete(`/api/products/${product.id}`, product);
       dispatch(productDelete(product));
-    } catch (err){
-      console.log(err)
+    } catch (err) {
+      console.log(err);
     }
   };
-}
+};
 
 const productsReducer = (products = [], action) => {
   switch (action.type) {
     case SET_PRODUCTS:
       return action.products;
-      case CREATE_PRODUCT:
-        return [...products, action.product]
-      case DELETE_PRODUCT:
-        return products.filter((product) => product.id !== action.product.id)
+    case CREATE_PRODUCT:
+      return [...products, action.product];
+    case DELETE_PRODUCT:
+      return products.filter((product) => product.id !== action.product.id);
     default:
       return products;
   }
