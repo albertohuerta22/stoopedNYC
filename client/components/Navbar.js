@@ -28,15 +28,18 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
         ) : isAdmin ? (
           <div>
             <h2>Hello, Admin {username}</h2>
-            <Link to="/home">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/admin/users">Users</Link>
-            <Link to="/products">Search</Link>
-            <Link to="/createproduct">New Item</Link>
+            <br />
+            <div className="navoptions">
+              <Link to="/home">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/admin/users">Users</Link>
+              <Link to="/products">Search</Link>
+              <Link to="/createproduct">New Item</Link>
 
-            <a href="#" onClick={handleClick}>
-              Logout
-            </a>
+              <a href="#" onClick={handleClick}>
+                Logout
+              </a>
+            </div>
           </div>
         ) : (
           <div>
