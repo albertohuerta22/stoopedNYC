@@ -121,3 +121,9 @@ h2 {
   padding: 10px;
   margin-top: 10px;
 }
+.mapCenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
