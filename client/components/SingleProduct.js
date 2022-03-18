@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getSingleProduct, } from "../store/singleProduct";
 import { useDispatch, useSelector } from "react-redux";
 import {deleteProduct} from "../store/productsReducer"
-import {useHistory} from "react-router-dom"
+import {useHistory, Link} from "react-router-dom"
 function SingleProduct(props){
   const  product  = useSelector(state => state.singleProduct);
   
@@ -35,6 +35,9 @@ function SingleProduct(props){
         <h3>{product.description}</h3>
         <p>{product.location}</p>
         <p>Available: {String(product.isAvailable)}</p>
+        <Link to="/mapview">
+        <button>Return to Map</button>
+        </Link>
         {!isAdmin? null : (
                 <>
                   <button>edit</button>

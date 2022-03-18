@@ -1,17 +1,22 @@
-import React from 'react';
-
+import React, {useEffect, useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../store/productsReducer';
 import {
   GoogleMap,
   withScriptjs,
   withGoogleMap,
   Marker,
+  InfoWindow
 } from 'react-google-maps';
 import { Link } from 'react-router-dom';
-
-const products = require('../../script/data');
-
 function Map() {
-  return (
+  const products = useSelector((state) => state.allProducts);
+  const dispatch = useDispatch();
+  const [activeMarker, setActiveMarker] = useState(null);
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+  return products ?(
     <div>
       <GoogleMap
         defaultZoom={12}
@@ -20,25 +25,50 @@ function Map() {
         {products.map((product) =>
           product.votes >= 5 ? (
             <div key={product.id}>
-              <Marker
-                position={{ lat: product.lat, lng: product.lng }}
-                icon={{
-                  url: 'https://toppng.com/uploads/preview/free-fire-png-logo-11569068081ezy973wyyo.png',
-                  scaledSize: { height: 30, width: 30 },
-                }}
-              ></Marker>
+                <Marker
+                  position={{ lat: (parseFloat(product.lat)), lng: (parseFloat(product.lng)) }}
+                  icon={{
+                    url: 'https://toppng.com/uploads/preview/free-fire-png-logo-11569068081ezy973wyyo.png',
+                    scaledSize: { height: 30, width: 30 },
+                  }}
+                  
+                  onClick={() => {setActiveMarker(product.id)}}
+                  >{     product.id === activeMarker ? 
+                    <InfoWindow {...product.name} >
+                         <div>
+                           <Link to={`/products/${product.id}`}>
+                           <b>{product.name}</b>
+                           <br />
+                           <div class= "mapCenter">
+                            <img src={product.imageUrl} height="50px" width="50px"/>
+                           </div>
+                           </Link>
+                         </div>
+                    </InfoWindow> : null}</Marker>
             </div>
           ) : (
             <div key={product.id}>
-              <Marker
-                position={{ lat: product.lat, lng: product.lng }}
-              ></Marker>
+                <Marker
+                  position={{  lat: (parseFloat(product.lat)), lng: (parseFloat(product.lng)) }}
+                  onClick={() => {setActiveMarker(product.id)}}
+                  >{     product.id === activeMarker ? 
+                    <InfoWindow {...product.name} >
+                         <div>
+                           <Link to={`/products/${product.id}`}>
+                           <b>{product.name}</b>
+                           <br />
+                           <div class= "mapCenter">
+                            <img src={product.imageUrl} height="50px" width="50px"/>
+                           </div>
+                           </Link>
+                         </div>
+                    </InfoWindow> : null}</Marker>
             </div>
-          )
+        )
         )}
       </GoogleMap>
     </div>
-  );
+  ):(<>null</>)
 }
 
 // 5 votes should trigger flame icon instead of default marker
